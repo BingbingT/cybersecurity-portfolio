@@ -1,0 +1,56 @@
+Remote Access Lab
+This lab demonstrates how to configure and test remote access between different operating systems using two widely used tools:
+•	Microsoft Remote Desktop (RDP) → Connect two Windows PCs
+•	PuTTY with SSH → Connect a Windows PC to a Kali Linux machine
+Objectives
+•	Enable and configure Remote Desktop Protocol (RDP) on Windows
+•	Establish a secure remote session between two Windows PCs
+•	Install and use PuTTY to initiate SSH connections
+•	Connect from Windows to Kali Linux using SSH
+Prerequisites
+•	Two Windows PCs
+•	One Kali Linux VM or physical machine
+•	Administrator privileges on all systems
+•	Network connectivity between devices (same LAN or configured routing)
+•	PuTTY installed on the Windows machine (Download PuTTY https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+Part 1: Remote Desktop Between Two Windows PCs
+
+Step 1: Enable Remote Desktop
+        1.	On the target Windows PC (the one you’ll connect to):
+            o	Go to Settings → System → Remote Desktop
+            o	Toggle Enable Remote Desktop to On
+            o	Allow connections from devices running any version of Remote Desktop
+        2.	Note down the PC name or IP address.
+Step 2: Connect Using Microsoft Remote Desktop
+        1.	On the client Windows PC:
+            o	Open Remote Desktop Connection.
+            o	Enter the target PC’s name or IP address.
+            o	Provide valid credentials (username + password).
+        2.	You should now see and control the remote Windows desktop session.
+
+Part 2: SSH Connection Between Windows and Kali Linux
+
+Step 1: Configure SSH on Kali Linux
+        1.	On Kali Linux, open a terminal and install OpenSSH server: 
+        2.	sudo apt update
+        3.	sudo apt install openssh-server -y
+        4.	Start and enable the SSH service: 
+        5.	sudo systemctl start ssh
+        6.	sudo systemctl enable ssh
+        7.	Verify SSH is running: 
+        8.	sudo systemctl status ssh
+        9.	Find Kali’s IP address: 
+        10.	ip addr show
+
+Step 2: Connect Using PuTTY on Windows
+        1.	Launch PuTTY on the Windows PC.
+        2.	Enter the IP address of the Kali Linux machine.
+        3.	Set Port to 22 and Connection type to SSH.
+        4.	Click Open.
+        5.	Login with your Kali Linux username and password.
+
+Verification
+•	You should be able to: 
+    o	Control the remote Windows PC via RDP.
+    o	Access the Kali Linux terminal remotely via SSH.
